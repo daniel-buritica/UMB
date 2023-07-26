@@ -1,0 +1,52 @@
+<!-- contenedor padre -->
+<div class="container mt-5 mb-4">
+  <!-- Creamos una fila -->
+  <div class="row mt-3 mx-2 justify-content-center">
+    <!-- Creamos una columna  -->
+    <div class="col-lg-6 border border-2 ">
+      <!-- Contenedor de registro -->
+      <!-- Header -->
+      <div class="row rounded border-bottom border-3 text-center py-2" id="enca">
+        <img src="/assets/img/cfwa.png" alt="">
+        <h3>Create an Account</h3>
+
+      </div>
+
+      <div class="row pt-3">
+        
+        <!-- Inicio de formulario -->
+
+        <div class="row">
+
+          <!--email-->
+          <div class="mb-3">
+            <label for="email"> Email</label>
+            <input id="userMail" class="form-control m-2" type="text" placeholder="Enter your email" name="email"
+              #userMail required />
+          </div>
+
+          <!--password-->
+          <div class="mb-3">
+            <label for="email"> Password</label>
+            <input id="userPassword" class="form-control m-2" type="password" placeholder="Enter your password"
+              name="password" #userPassword required>
+
+          </div>
+
+        </div>
+
+        <div class="row d-md-flex justify-content-md-end pb-3 text-end">
+          <div class="col-lg-12 my-1 mt-3">
+
+            <app-submit-button-plane (click)="authService.SignUp(userMail.value, userPassword.value)"></app-submit-button-plane>
+            <label>Do you already have an account? <a routerLink="../login">Log In</a> </label>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

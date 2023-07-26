@@ -1,0 +1,58 @@
+<div class="container">
+      <div class="row">
+        <div class="col-md-12 mt-4" >
+          <div class="card mb-4 shadow-sm">
+            <a href="AdminHome">
+                <img src="/assets/img/cfwa.png" class="card-img-top" alt="Project Image"></a>
+            <div class="card-body">
+              <h5 class="card-title">list of existing customers</h5>
+              <hr _ngcontent-xoe-c18="" class="my-4">
+              <div class="table-responsive">
+                <table class="table" id="customer">
+                    <thead>
+                    <tr>
+                        <th class="col-sm-1">Id</th>
+                        <th class="col-sm-2">1st Name</th>
+                        <th class="col-sm-2">2nd Name</th>
+                        <th class="col-sm-2">First Surname</th>
+                        <th class="col-sm-1">type id card</th>
+                        <th class="col-sm-2">Id card</th>
+                        <th class="col-sm-2">email</th>
+                        <th class="col-sm-1">id city</th>
+                        <th class="col-sm-1">indicator country</th>
+                        <th class="col-sm-1">phone</th>
+                        <th class="col-sm-1">id_rol</th>
+                        <th class="col-sm-2">date birth</th>
+                        <th class="col-sm-1">Status</th>
+                        <th class="col-sm-2">Actions</th>
+                    </tr>
+                                    </thead>
+                    <tbody>
+                        <tr  *ngFor="let customer of listCustomer">
+                        <td class="col-sm-1">{{customer.id}}</td>
+                        <td class="col-sm-2">{{customer.firstName}}</td>
+                        <td class="col-sm-2">{{customer.secondName}}</td>
+                        <td class="col-sm-2">{{customer.firstSurname}}</td>
+                        <td class="col-sm-1">{{customer.typeIdCardModel.type}}</td>
+                        <td class="col-sm-2">{{customer.idCard}}</td>
+                        <td class="col-sm-2">{{customer.email}}</td>
+                        <td class="col-sm-1">{{customer.cityModel.city}}</td>
+                        <td class="col-sm-1">{{customer.cityModel.countryModel.indicatorCountryModel.indicator}}</td>
+                        <td class="col-sm-1">{{customer.phone}}</td>
+                        <td class="col-sm-1">{{customer.rolModel.rol}}</td>
+                        <td class="col-sm-2">{{customer.dateBirth}}</td>
+                        <td class="col-sm-1">{{customer.statusModel.status}}</td>
+                        <td class="col-sm-1"><a href="#" style="color: #cecece;" (click)="deleteCustomer($event,customer.email)"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                          </tr>
+                    </tbody>
+                </table>
+            </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <router-outlet></router-outlet>
+  
+   

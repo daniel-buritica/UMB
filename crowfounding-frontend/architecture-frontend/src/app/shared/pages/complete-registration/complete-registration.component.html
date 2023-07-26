@@ -1,0 +1,114 @@
+<div class="container  mt-5 mb-4">
+  <div class="row mt-3 mx-2 justify-content-center">
+    <div class="col-lg-8 bg-white ">
+      <div class="row rounded border-bottom border-3 text-center py-2" id="enca">
+        <img src="/assets/img/cfwa.png" alt="">
+        <h3>Complete registration</h3>
+      </div>
+      <div class="row pt-3">
+        <form class="row" [formGroup]="customer_registration"
+          (ngSubmit)="postCompleteRegister(customer_registration.value)">
+          <div class="row">
+            <div class="col-lg-6 my-1">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="Ingresa tu nombre"
+                formControlName='firstName'>
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="secondName">Second Name</label>
+              <input type="text" class="form-control" id="secondName" placeholder="Ingresa tu segundo nombre"
+                formControlName='secondName'>
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="firstSurname">First Surname</label>
+              <input type="text" class="form-control" id="firstSurname" placeholder="ingreasa tu apellido"
+                formControlName='firstSurname'>
+            </div>
+            <div class="col-lg-6 my-1">
+              <form formGroupName="typeIdCardModel">
+                <label for="type">Document Type</label>
+                <div class="col-6 form-group" style="margin: 5px;">
+                  <select class="form-control" id="type" formControlName='type'>
+                    <option value="" disabled selected>Selecciona un Tipo</option>
+                    <option *ngFor="let documentTypeList of arrayDocumentType">{{ documentTypeList }}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="idCard">Id Card</label>
+              <input type="number" class="form-control" id="idCard" placeholder="Ingresa tu id"
+                formControlName='idCard' />
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="phone">Phone</label>
+              <input type="number" class="form-control" id="phone" required placeholder="Ingresa el telefono"
+                pattern="[A-Za-zzÑñÁÉÍÓÚáéíóú\s]+" formControlName="phone" />
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="dateBirth">Date Birth</label>
+              <input type="date" class="form-control" id="dateBirth" required
+                placeholder="Ingresa tu fecha de nacimiento" pattern="[A-Za-zzÑñÁÉÍÓÚáéíóú\s]+"
+                formControlName="dateBirth" />
+            </div>
+            <div class="col-lg-6 my-1">
+              <form formGroupName="rolModel">
+                  <label for="rol">Rol</label>
+                  <div class="col-6 form-group" style="margin: 5px;">
+                    <select class="form-control" id="rol" formControlName='rol'>
+                      <option value="" disabled selected>Selecciona un rol</option>
+                      <option *ngFor="let typeUser of arrayUserType">{{typeUser}}</option>
+                    </select>
+                  </div>
+              </form>
+            </div>
+            <form formGroupName="cityModel" class="row">
+              <div class="col-lg-6 my-1">
+                <form formGroupName="countryModel" class="row">
+                  <div class="col-12 form-group">
+                    <label for="country">Country</label>
+                    <select class="form-control" id="country" formControlName='country'>
+                      <option value="" disabled selected>Selecciona un país</option>
+                      <option *ngFor="let countryList of arrayContriesAndCities">{{ countryList.countries }}</option>
+                    </select>
+                  </div>
+                  <div class="col-12 form-group">
+                    <form formGroupName="indicatorCountryModel"  >
+                      <label for="indicator">Indicator of Country</label>
+                      <input type="number" class="form-control" id="indicator" required placeholder="Ingresa el indicador" pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName='indicator' />
+                    </form>
+                  </div>
+                </form>
+              </div>
+              <div class="col-lg-6 my-1">
+                <div class="col-12 form-group">
+                  <label for="city" id="city">City</label>
+                  <select class="form-control" id="city" formControlName='city'>
+                    <option value="" disabled selected>Selecciona un cuidad</option>
+                    <ng-container *ngFor="let country of arrayContriesAndCities">
+                      <ng-container *ngFor="let city of country.cities">
+                        <option>{{city}}</option>
+                      </ng-container>
+                    </ng-container>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="container d-flex justify-content-center">
+            <div class="row d-md-flex justify-content-center pb-3 text-end">
+              <div class="col-lg-12 my-1 mt-3">
+                <a class="navbar-brand text-end">
+                  <app-submit-button-plane></app-submit-button-plane>
+                </a>
+                <a class="navbar-brand text-end" href="Index.html">
+                  <button type="button" class="btn btn-secondary" id="btnn">Cancelar</button>
+                </a>
+              </div>
+            </div>
+          </div>          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

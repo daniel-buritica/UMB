@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="container py-5 h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col">
+      <div class="card">
+        <div class="card-body p-4">
+          <div class="row">
+            <div class="col-lg-6">
+              <h5 class="mb-3 continue-shopping">
+                <a href="home" class="text-body">
+                  <i class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping
+                </a>
+              </h5>
+              
+              <hr class="tittle">
+              <ng-container *ngFor="let purchase of listPackage2">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img *ngIf="objProject[purchase.idProject]" src="{{objProject[purchase.idProject].imageCategory}}"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>{{objProject[purchase.idProject]?.projectName}} - {{purchase.packagee}}</h5>
+                          <p class="small mb-0">{{purchase.description}}</p>
+                        </div>
+                                              
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;"></div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">${{purchase.price.toLocaleString('en-US')}}</h5>
+                        </div>
+                        <a href="#" style="color: #cecece;" (click)="deletePurchase($event, purchase.id)"><i
+                            class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>      
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <div class="payment-options">
+                  <div class="btn-group" style="width: 100%;">
+                    <input type="radio" name="paymentType" [(ngModel)]="selectedPaymentType" value="creditCard"
+                      class="btn-check" name="options" id="option1" autocomplete="off" checked />
+                    <label class="btn btn-secondary" for="option1">
+                      <span class="radio-label">Credit Card <i class="fas fa-credit-card"></i></span>
+                    </label>
+                    <input type="radio" name="paymentType" [(ngModel)]="selectedPaymentType" value="bankTransfer"
+                      class="btn-check" name="options" id="option2" autocomplete="off" />
+                    <label class="btn btn-secondary" for="option2">
+                      <span class="radio-label">Bank Transfer <i class="fas fa-university"></i></span>
+                    </label>
+                  </div>
+                </div>
+                <hr>
+              </div>
+              <div [hidden]="selectedPaymentType !== 'creditCard'">
+                <app-card-form></app-card-form>
+              </div>
+              <div [hidden]="selectedPaymentType !== 'bankTransfer'">
+                <app-transfer-form></app-transfer-form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-button-complete-order (click)="postCreatePurchase(purchase_registration.value)"></app-button-complete-order>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

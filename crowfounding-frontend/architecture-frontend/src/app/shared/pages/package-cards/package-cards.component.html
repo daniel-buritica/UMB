@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row" *ngFor="let package of listPackage">
+      <div class="card" (click)="selectPackage(package)">
+        <div class="package">
+          <h5>{{ package.packagee }}</h5>
+          <p>${{ package.price.toLocaleString('en-US') }}</p>
+        </div>
+        <div class="card-text">
+          <p>{{ package.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

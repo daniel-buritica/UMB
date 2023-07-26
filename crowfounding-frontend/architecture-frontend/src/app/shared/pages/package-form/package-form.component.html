@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container  mt-5 mb-4">
+  <div class="row mt-3 mx-2 justify-content-center">
+    <div class="col-lg-8 bg-white">
+      <div class="row rounded border-bottom border-3 text-center py-2" id="enca">
+        <img src="/assets/img/cfwa.png" alt="">
+        <h3>Register Package</h3>
+      </div>
+      <div class="row pt-3">
+        <form class="row" [formGroup]="package_registration" (ngSubmit)="postCreatePackage(package_registration.value)" >
+          <div class="row">
+            <div class="col-lg-6 my-1">
+              <label for="packagee">Package Name</label>
+              <select id="packagee" class="form-control" required formControlName='packagee'>
+                <option value="Package 1">Package 1</option>
+                <option value="Package 2">Package 2</option>
+                <option value="Package 3">Package 3</option>
+              </select>
+            </div>
+            
+            <div class="col-lg-6 my-1">
+              <label for="description">Description</label>
+              <textarea type="text" id="description" class="form-control" required maxlength="150"
+                placeholder="Enter the package description" formControlName='description'></textarea>
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="price">Package Price</label>
+              <input type="number" id="price" class="form-control" class="form-control" required
+                placeholder="Enter the package price" formControlName='price' />
+            </div>
+          </div>
+          <div class="row d-md-flex justify-content-center pb-3 text-end">
+            <div class="col-lg-6 my-1 mt-3">
+              <a class="navbar-brand text-end">
+                <app-submit-button-plane></app-submit-button-plane>
+              </a>
+              <a class="navbar-brand text-end" href="home">
+                <button type="button" class="btn btn-secondary" id="btnn">Cancel</button>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,103 @@
+
+  #project{
+    width:200%;
+  }
+  .card {
+    background-color: white;
+    //border-color: rgb(83, 113, 255);
+    transition: box-shadow 1s, transform 0.3s;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  .card:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    background-color: rgb(83, 113, 255);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    color: black;
+  }
+  .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .card-title {
+    font-weight: arial;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: rgb(83, 113, 255);
+    box-shadow: 0 0 0 0.2rem rgba(83, 113, 255, 0.25);
+  }
+  
+  .projects-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .projects-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    
+  }
+  
+  #project .card {
+    background-color: white;
+    //border-color: rgb(83, 113, 255);
+    transition: box-shadow 1s, transform 0.3s;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  #project .card:hover {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  #project .card-header {
+    background-color: rgb(83, 113, 255);
+    color: white;
+    font-weight: bold;
+  }
+  
+  #project .card-body {
+    color: black;
+  }
+  
+  #project .btn-primary {
+    background-color: rgb(83, 113, 255);
+    border-color: rgb(83, 113, 255);
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  #project .btn-primary:hover {
+    background-color: rgb(56, 76, 168);
+    border-color: rgb(56, 76, 168);
+  }

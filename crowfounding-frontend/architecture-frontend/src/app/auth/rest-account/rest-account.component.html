@@ -1,0 +1,61 @@
+<!-- contenedor padre -->
+<div class="container mt-5 mb-4">
+
+  <!-- Creamos una fila -->
+  <div class="row mt-3 mx-2 justify-content-center">
+
+    <!-- Creamos una columna  -->
+    <div class="col-lg-6 border border-2 ">
+
+      <!-- Contenedor de registro -->
+      <!-- Header -->
+
+      <div class="row rounded border-bottom border-3 text-center py-2" id="enca">
+
+        
+        <h3>Recover your password</h3>
+
+      </div>
+
+      <div class="row pt-3">
+
+        <!-- Inicio de formulario -->
+
+
+
+        <div class="row">
+          <h3><i class="fa fa-lock fa-4x"></i></h3>
+          <!--email-->
+          <div class=" my-1">
+            
+
+            <label for="email"> Enter your email to find your account</label>
+            <input id="userName" class="form-control m-2" type="email" placeholder="enter your email" name="email"
+              #userName required />
+
+          </div>
+
+
+
+
+        </div>
+
+        <div class="row d-md-flex justify-content-md-end pb-3 text-end">
+
+          <div class="col-lg-12 my-1 mt-3">
+
+            <app-submit-button-plane (click)="authService.ForgotPassword(userName.value)"></app-submit-button-plane>
+            <button class="btn btn-secondary btn-lg btn-block m-2" (click)="login()">Cancel</button>
+            <label>Don't have an account yet?<a routerLink="../register">Sing in</a></label>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+  

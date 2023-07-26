@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:12.2
+    container_name: postgres
+    volumes:
+      - ./postgres-scripts:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=crowdfunding
+    ports:
+      - 5432:5432
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crow-back
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+
+
+
+
+
+

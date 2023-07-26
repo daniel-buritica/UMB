@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="container  mt-5 mb-4">
+  <div class="row mt-3 mx-2 justify-content-center">
+    <div class="col-lg-8 bg-white">
+      <div class="row rounded border-bottom border-3 text-center py-2" id="enca">
+        <img src="/assets/img/cfwa.png" alt="">
+        <h3>Update Project</h3>
+      </div>
+      <div class="row pt-3">
+        <form class="row" [formGroup]="exampleData" (ngSubmit)="updateCustomer(exampleData.value)">
+          <div class="row">
+            <div class="col-lg-6 my-1">
+              <label for="projectName">Project Name</label>
+              <input type="text" id="projectName" class="form-control" required placeholder="enter the project name"
+                pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName='projectName' />
+            </div>
+            <div class="col-lg-6 my-1">
+              <label>Creator</label>
+              <input type="text" id="txtnamec" class="form-control" readonly pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" />
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="description">Description</label>
+              <textarea type="text" id="description" class="form-control" required maxlength="150"
+                placeholder="Enter the project description" formControlName='description'></textarea>
+            </div>
+            <div class="col-lg-6 my-1">
+              <label for="total">Project rate</label>
+              <input type="number" id="total" class="form-control" class="form-control" required
+                placeholder="Enter the project rate" formControlName='total' />
+            </div>
+          </div>
+          <div class="col-lg-6 my-1">
+            <form formGroupName="categoryModel">
+              <label for="type">Type</label>
+              <div class="col-6 form-group">
+                <select class="form-control" id="type" formControlName='type'>
+                  <option value="" disabled selected>Select the project category</option>
+                  <option *ngFor="let reasonTypeList of arrayOjectivesODS">{{ reasonTypeList }}</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="row d-md-flex justify-content-center pb-3 text-end">
+            <div class="col-lg-6 my-1 mt-3">
+              <a class="navbar-brand text-end">
+                <button type="submit" class="btn btn-primary ">Set Up</button>
+              </a>
+              <a class="navbar-brand text-end" href="profile">
+                <button type="button" class="btn btn-secondary" id="btnn">Cancel</button>
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

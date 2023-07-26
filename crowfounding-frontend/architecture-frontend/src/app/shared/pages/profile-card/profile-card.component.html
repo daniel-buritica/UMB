@@ -1,0 +1,193 @@
+<div class="card mb-5" (click)="openModal()" data-toggle="modal" data-target="#Modalupdate">
+    <div class="card-body text-center">
+        <img src='{{ this.dataUserProfile?.profilePicture }}' alt="avatar" class="rounded-circle img-fluid"
+            style="width: 150px;">
+        <h5 class="my-3"></h5>
+        <p class="text-muted mb-1">Profile {{this.dataUserProfile?.rolModel.rol}}</p>
+        <p class="text-muted mb-4">Bay Area, {{this.dataUserProfile?.cityModel.city}} -
+            {{this.dataUserProfile?.cityModel.countryModel.country}} , CA</p>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">First Name</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.firstName | camelCase }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Second Name</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.secondName | camelCase}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Surname</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.firstSurname | camelCase}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">ID Card</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.idCard }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.email }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">City</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.cityModel.city | camelCase}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">(+
+                    {{this.dataUserProfile?.cityModel.countryModel.indicatorCountryModel.indicator}}) {{
+                    this.dataUserProfile?.phone }}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Rol</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.rolModel.rol | camelCase}}</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <p class="mb-0">Birthday</p>
+            </div>
+            <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ this.dataUserProfile?.dateBirth}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="Modalupdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" *ngIf="isOpen">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="column" id="main">
+                    <div class="row rounded text-center py-2" id="enca">
+                        <img src="/assets/img/cfwa.png" alt="" id="cfwa-logo">
+                        <h3>Update information</h3>
+                    </div>
+                    <div class="row pt-3">
+                        <form class="row" [formGroup]="exampleData" (ngSubmit)="updateCustomer(exampleData.value)">
+                            <div class="row">
+                                <div class="col-lg-6 my-1">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" id="firstName"
+                                        pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="firstName" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <label for="secondName">Second name</label>
+                                    <input type="text" class="form-control" id="secondName"
+                                        pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="secondName" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <label for="firstSurname">First Surname</label>
+                                    <input type="text" class="form-control" id="firstSurname" required
+                                        pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="firstSurname" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <form formGroupName="typeIdCardModel">
+                                        <label for="type">Document Type</label>
+                                        <input type="text" class="form-control" id="type" readonly required
+                                            pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="type" />
+                                    </form>
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <label for="idCard">Id Card</label>
+                                    <input type="text" class="form-control" readonly id="idCard" class="form-control"
+                                        formControlName="idCard" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" readonly id="txtemail"
+                                        formControlName="email" />
+                                </div>
+                                
+                                <div class="col-lg-6 my-1">
+                                    <label for="phone">Phone</label>
+                                    <input type="number" class="form-control" id="phone" required pattern="[0-9]+"
+                                        formControlName="phone" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <label for="dateBirth">Birthday</label>
+                                    <input type="date" readonly class="form-control" id="dateBirth"
+                                        formControlName="dateBirth" />
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <form formGroupName="rolModel">
+                                        <label for="rol">Rol</label>
+                                        <input type="text" class="form-control" id="rol" readonly required
+                                            pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="rol" />
+                                    </form>
+                                </div>
+                                <div class="col-lg-6 my-1">
+                                    <form formGroupName="cityModel">
+                                        <form formGroupName="countryModel">
+                                            <form formGroupName="indicatorCountryModel">
+                                                <label for="indicator">Indicator</label>
+                                                <input type="number" class="form-control" id="indicator"
+                                                    formControlName="indicator" />
+                                            </form>
+                                        </form>
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" id="city" required
+                                            pattern="[A-Za-zÑñÁÉÍÓÚáéíóú\s]+" formControlName="city" />
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="container d-flex justify-content-center">
+                                <div class="row d-md-flex justify-content-center pb-3 text-end">
+                                    <div class="col-lg-12 my-1 mt-3">
+                                        <a class="navbar-brand text-end">
+                                            <button type="submit" class="btn btn-primary ">Update</button> </a>
+                                        <a class="navbar-brand text-end" href="deleteCustomer">
+                                            <button type="button" class="btn btn-secondary" id="btnn">Delete</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

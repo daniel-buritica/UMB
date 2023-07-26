@@ -1,0 +1,77 @@
+.card {
+  background-color: white;
+  transition: box-shadow 1s, transform 0.3s;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin-left: 30%;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: rgb(83, 113, 255);
+  color: white;
+  font-weight: bold;
+}
+
+.card-body {
+  color: black;
+}
+
+.payment-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+    "name name"
+    "number number"
+    "expiration security"
+    "transfer transfer";
+  max-width: 400px;
+  padding: 20px;
+  color: #707070;
+}
+
+.field-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+
+input {
+  margin-top: 3px;
+  padding: 15px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #dcdcdc;
+}
+
+.transfer-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-left: 0;
+  }
+}

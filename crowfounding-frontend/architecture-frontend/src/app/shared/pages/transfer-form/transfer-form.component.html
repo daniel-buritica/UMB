@@ -1,0 +1,31 @@
+<div class="col-md-8 mt-4">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="payment-title">
+        <h1 class="card-title">Payment Information</h1>
+        <h3><i class="fa fa-piggy-bank fa-4x"></i></h3>
+      </div>
+      <div class="form-container">
+        <form [formGroup]="transfer_registration" (ngSubmit)="postCreateTransfer(transfer_registration.value)">
+          <div class="field-container">
+            <label for="sourceName">Source Name</label>
+            <input id="sourceName" maxlength="20" type="text"  formControlName='sourceName'>
+          </div>
+          <div class="field-container">
+            <label for="sourceAccount">Source Account</label>
+            <input id="sourceAccount" type="text" pattern="[0-9]*" inputmode="numeric"  formControlName='sourceAccount'>
+          </div>
+          <div class="field-container">
+            <label for="destinationName">Destination Name</label>
+            <input id="destinationName" maxlength="20" type="text"  formControlName='destinationName'>
+          </div>
+          <div class="field-container">
+            <label for="destinationAccount">Destination Account</label>
+            <input id="destinationAccount" type="text" pattern="[0-9]*" inputmode="numeric"  formControlName='destinationAccount'>
+          </div>
+          <app-submit-button-plane></app-submit-button-plane>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

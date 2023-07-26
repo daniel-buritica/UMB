@@ -1,0 +1,58 @@
+.container {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+  }
+  
+  .container .card {
+    width: 330px;
+    height: 350px; /* Ajustar la altura aquí */
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    background: rgb(83, 113, 255);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .container .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    color: black;
+  }
+  
+  .container .card-icon {
+    font-size: 80px;
+    color: white;
+    margin-top: 50px;
+  }
+  
+  .container .card h3 {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #f4f4f4;
+    font-family: 'Dancing';
+  }
+  
+  .container .card p {
+    padding: 0 1rem;
+    font-size: 19px;
+    font-family: 'Dancing';
+    color: #f4f4f4;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .container a {
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+  }
+  

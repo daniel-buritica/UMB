@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowfounding-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: crowfounding-pod
+  template:
+    metadata:
+      labels:
+        app: crowfounding-app
+        pod: crowfounding-pod
+    spec:
+      containers:
+        - name: crowfounding-container
+          image: dburitic/crowfoundinfg-backend:2.0.0
+          resources:
+            requests:
+              memory: 300Mi
+              cpu: 400m
+            limits:
+              memory: 300Mi
+              cpu: 400m
+          ports:
+            - containerPort: 80
